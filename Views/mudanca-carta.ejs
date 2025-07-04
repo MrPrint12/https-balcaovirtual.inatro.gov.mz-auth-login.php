@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Mudança de Carta - INATRO</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="login-box">
+    <h2>Mudança de Carta</h2>
+    <form action="/mudanca-carta" method="POST" enctype="multipart/form-data">
+      <label>Nome completo:</label>
+      <input type="text" name="nome" required>
+      <label>Upload do documento:</label>
+      <input type="file" name="documento" accept=".pdf" required>
+      <button type="submit">Submeter Pedido</button>
+    </form>
+  </div>
+</body>
+</html>
