@@ -8,7 +8,6 @@ router.get("/auth-login", (req, res) => {
 
 router.post("/auth-login", (req, res) => {
   const { code, birth } = req.body;
-
   db.get("SELECT * FROM users WHERE code = ? AND birth = ?", [code, birth], (err, user) => {
     if (user) {
       req.session.user = code;

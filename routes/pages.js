@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
+const db = require("../database");
+
 const upload = multer({ dest: "uploads/" });
 
 router.get("/faq", (req, res) => {
@@ -12,9 +14,10 @@ router.get("/contact", (req, res) => {
 });
 
 router.post("/contact", (req, res) => {
-  // Simula envio
-  console.log("Mensagem recebida:", req.body);
-  res.send("Mensagem enviada com sucesso!");
+  db.run('INSERT INTO messages (nome, email, mensagem) VALUES (?, ?, ?)',
+    [req.body.nome, req.body.email, req.body.mensagem],
+    () => res.send('Mensagem enviada com sucesso!')
+  );
 });
 
 router.get("/mudanca-carta", (req, res) => {
