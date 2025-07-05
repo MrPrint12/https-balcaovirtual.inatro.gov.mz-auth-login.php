@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <title>Contacte-nos - INATRO</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
+<html>
+<head><title>Contacte-nos</title></head>
 <body>
-  <div class="login-box">
-    <h2>Contacte-nos</h2>
-    <form action="/contact" method="POST">
-      <input type="text" name="nome" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu email" required>
-      <textarea name="mensagem" placeholder="Sua mensagem" rows="4" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
+  <h2>Formulário de Contato</h2>
+  <form action="/contact" method="POST">
+    <input name="nome" placeholder="Seu nome">
+    <input name="email" placeholder="Seu email">
+    <textarea name="mensagem" placeholder="Sua mensagem"></textarea>
+    <button type="submit">Enviar</button>
+  </form>
 </body>
 </html>

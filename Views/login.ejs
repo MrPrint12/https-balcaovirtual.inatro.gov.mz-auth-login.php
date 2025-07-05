@@ -2,21 +2,16 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>INATRO | Login</title>
+  <title>Login - INATRO</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <div class="login-box">
-    <h1>INATRO</h1>
-    <h3>Portal do Utente</h3>
-    <% if (error) { %>
-      <p style="color:red;"><%= error %></p>
-    <% } %>
-    <form action="/auth-login" method="POST">
-      <label>N.º da Carta de Condução/Código *</label>
-      <input type="text" name="code" required>
-      <label>Data de Nascimento *</label>
-      <input type="date" name="birth" required>
+    <h2>Login</h2>
+    <% if (error) { %><p style="color:red;"><%= error %></p><% } %>
+    <form method="POST" action="/auth-login">
+      <input type="text" name="code" placeholder="Código do Aluno" required>
+      <input type="date" name="birth" placeholder="Data de Nascimento" required>
       <button type="submit">Entrar</button>
     </form>
   </div>

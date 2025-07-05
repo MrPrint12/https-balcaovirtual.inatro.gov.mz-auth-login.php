@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin</title></head>
+<body>
+  <h2>Painel de Administração</h2>
+  <h3>Usuários</h3>
+  <ul>
+    <% users.forEach(u => { %>
+      <li><%= u.code %> - <%= u.birth %></li>
+    <% }) %>
+  </ul>
+  <h3>Mensagens</h3>
+  <ul>
+    <% messages.forEach(m => { %>
+      <li><strong><%= m.nome %></strong>: <%= m.mensagem %> (<%= m.email %>)</li>
+    <% }) %>
+  </ul>
+</body>
+</html>
