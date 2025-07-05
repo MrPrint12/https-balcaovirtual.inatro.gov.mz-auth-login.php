@@ -17,4 +17,10 @@ router.post("/auth-login", (req, res) => {
   });
 });
 
+router.get("/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/auth-login");
+  });
+});
+
 module.exports = router;
