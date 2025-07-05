@@ -8,6 +8,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -18,9 +19,11 @@ app.use(session({
 
 const authRoutes = require("./routes/auth");
 const pageRoutes = require("./routes/pages");
+const adminRoutes = require("./routes/admin");
 
 app.use("/", authRoutes);
 app.use("/", pageRoutes);
+app.use("/", adminRoutes);
 
 app.get("/", (req, res) => {
   if (!req.session.user) return res.redirect("/auth-login");

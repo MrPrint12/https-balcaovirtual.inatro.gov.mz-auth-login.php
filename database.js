@@ -13,6 +13,13 @@ db.serialize(() => {
       db.run("INSERT INTO users (code, birth) VALUES (?, ?)", ["USER001", "1999-12-31"]);
     }
   });
+
+  db.run(`CREATE TABLE IF NOT EXISTS messages (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    email TEXT,
+    mensagem TEXT
+  )`);
 });
 
 module.exports = db;
