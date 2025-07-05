@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Login - INATRO</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <div class="login-box">
     <h2>Login</h2>
-    <% if (error) { %><p style="color:red;"><%= error %></p><% } %>
+    <% if (error) { %>
+      <p class="error"><%= error %></p>
+    <% } %>
     <form method="POST" action="/auth-login">
-      <input type="text" name="code" placeholder="Código do Aluno" required>
-      <input type="date" name="birth" placeholder="Data de Nascimento" required>
+      <input type="text" name="code" placeholder="Código do Aluno" required />
+      <input type="date" name="birth" placeholder="Data de Nascimento" required />
       <button type="submit">Entrar</button>
     </form>
   </div>
