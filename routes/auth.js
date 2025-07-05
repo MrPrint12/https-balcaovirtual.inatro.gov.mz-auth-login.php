@@ -12,9 +12,8 @@ router.post("/auth-login", (req, res) => {
     if (user) {
       req.session.user = code;
       return res.redirect("/");
-    } else {
-      return res.render("login", { error: "Credenciais inválidas!" });
     }
+    res.render("login", { error: "Credenciais inválidas!" });
   });
 });
 
