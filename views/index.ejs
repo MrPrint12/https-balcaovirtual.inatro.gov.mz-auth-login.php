@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <title>Página Inicial</title>
+  <meta charset="UTF-8" />
+  <title>Página Inicial - INATRO</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .menu {
+      margin: 2rem auto;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .menu a {
+      display: block;
+      padding: 1rem;
+      background: #3498db;
+      color: white;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .menu a:hover {
+      background: #2980b9;
+    }
+    .welcome {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
 <body>
-  <h2>Bem-vindo, <%= user %>!</h2>
-  <ul>
-    <li><a href="/faq">FAQ</a></li>
-    <li><a href="/contact">Contacte-nos</a></li>
-    <li><a href="/mudanca-carta">Mudança de Carta</a></li>
-    <li><a href="/admin">Painel Admin</a></li>
-  </ul>
+  <div class="login-box" style="max-width: 360px; margin: 3rem auto;">
+    <h2>Bem-vindo, <%= user %>!</h2>
+    <div class="menu">
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contacte-nos</a>
+      <a href="/mudanca-carta">Mudança de Carta</a>
+      <a href="/admin">Painel Admin</a>
+      <a href="/logout">Sair</a>
+    </div>
+  </div>
 </body>
 </html>
