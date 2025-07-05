@@ -14,10 +14,11 @@ router.get("/contact", (req, res) => {
 });
 
 router.post("/contact", (req, res) => {
-  db.run('INSERT INTO messages (nome, email, mensagem) VALUES (?, ?, ?)',
-    [req.body.nome, req.body.email, req.body.mensagem],
-    () => res.send('Mensagem enviada com sucesso!')
-  );
+  const { nome, email, mensagem } = req.body;
+  db.run("INSERT INTO messages (nome, email, mensagem) VALUES (?, ?, ?)", [nome, email, mensagem], err => {
+    if (err) return res.status(500).send("Erro ao enviar mensagem.");
+    res.send("Mensagem enviada com sucesso!");
+  });
 });
 
 router.get("/mudanca-carta", (req, res) => {
@@ -25,8 +26,8 @@ router.get("/mudanca-carta", (req, res) => {
 });
 
 router.post("/mudanca-carta", upload.single("documento"), (req, res) => {
-  console.log("Pedido recebido:", req.body, req.file);
-  res.send("Pedido de mudança de carta submetido!");
+  if (!req.file) return res.status(400).send("Envie o documento.");
+  res.send(`Pedido de mudança para ${req.body.nome} recebido. Arquivo: ${req.file.originalname}`);
 });
 
 module.exports = router;
