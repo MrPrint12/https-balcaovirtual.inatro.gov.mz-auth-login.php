@@ -1,19 +1,80 @@
 <!DOCTYPE html>
-<html>
-<head><title>Admin</title></head>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Administração - INATRO</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background: #3498db;
+      color: white;
+    }
+    h2 {
+      margin-bottom: 1rem;
+    }
+    a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #3498db;
+      text-decoration: none;
+    }
+  </style>
+</head>
 <body>
-  <h2>Painel de Administração</h2>
-  <h3>Usuários</h3>
-  <ul>
-    <% users.forEach(u => { %>
-      <li><%= u.code %> - <%= u.birth %></li>
-    <% }) %>
-  </ul>
-  <h3>Mensagens</h3>
-  <ul>
-    <% messages.forEach(m => { %>
-      <li><strong><%= m.nome %></strong>: <%= m.mensagem %> (<%= m.email %>)</li>
-    <% }) %>
-  </ul>
+  <div class="login-box" style="width: 90%; max-width: 1000px; margin: 2rem auto;">
+    <h2>Painel de Administração</h2>
+
+    <h3>Usuários</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Código</th>
+          <th>Data de Nascimento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(u => { %>
+          <tr>
+            <td><%= u.id %></td>
+            <td><%= u.code %></td>
+            <td><%= u.birth %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <h3>Mensagens</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Mensagem</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% messages.forEach(m => { %>
+          <tr>
+            <td><%= m.nome %></td>
+            <td><%= m.email %></td>
+            <td><%= m.mensagem %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <a href="/">Voltar</a>
+  </div>
 </body>
 </html>
